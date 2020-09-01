@@ -1,0 +1,12 @@
+---
+# site.yml
+
+- import_playbook: info.yml
+  tags: info
+
+- import_playbook: packager.yml
+  tags: packager
+
+- import_playbook: users_info.yml
+  tags: users
+

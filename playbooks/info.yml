@@ -1,0 +1,41 @@
+---
+- name: Playbook info.yml
+  hosts: all
+  environment: 
+    Target: test
+
+  tasks:
+  - name: Zeige verschiedene Variablen
+    debug:
+      var: "{{ item }}"
+    loop:
+      - playbook_dir
+      - inventory_dir
+      - inventory_hostname
+      - group_names
+      - groups
+
+  - name: Zeige alle Environment Variablen formatiert mit JSON
+    debug:
+      var: "{{ environment | to_nice_json }}"
+
+     
+  - name: Zeige alle Variablen und Facts zu diesen Host
+    debug:
+      var: hostvars[inventory_hostname]
+      verbosity: 2
+
+  - name: Prüfe, ob 'antwort' definiert wurde.
+    debug: 
+      msg: "Die Variable 'antwort' ist nicht definiert."
+    when: antwort is undefined
+
+
+  - name: Die Variable 'antwort' ist definiert und hat den Wert {{ antwort }}
+    debug:
+      var: antwort
+    when: antwort is defined
+
+  - name: Inhalt von 'userlist'
+    debug:
+      var: userlist

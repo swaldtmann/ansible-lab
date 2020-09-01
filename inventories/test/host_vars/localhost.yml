@@ -1,0 +1,5 @@
+---
+antwort: 42
+userlist:
+  - root
+  - userlist_from_hostvars
