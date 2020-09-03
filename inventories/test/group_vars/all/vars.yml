@@ -20,3 +20,15 @@ hosts_ssh_key: root@ansible
 
 hosts_basic_packets:
     - git
+    - tcptrack
+    - unzip
+    - dstat
+
+user_default:
+    group: users
+    password: vergessen
+    shell: /bin/bash
+    groups: sudo
+    append: yes
+    state: present
+    generate_ssh_key: yes
