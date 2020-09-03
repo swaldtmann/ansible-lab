@@ -27,4 +27,3 @@ git config --global alias.conf 'config --list'
 git config --global alias.alias '!git config --list | grep '\''alias\.'\'' | sed '\''s/alias\.\([^=]*\)=\(.*\)/\1\	=> \2/'\'' | sort'
 
 git config --list
-

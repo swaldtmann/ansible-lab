@@ -9,9 +9,8 @@ https://beneke.cc/blog/hetzner-cloud-ansible-inventory-via-plugin
 
 # pip3 install hcloud
 
-# HCLOUD_TOKEN=<token> ansible-inventory --list
-
 # Veränderungen an ~/.bashrc
 export EDITOR=vi
 test -x ~/devel/ansible-lab/keep/hcloud_token.sh && . ~/devel/ansible-lab/keep/hcloud_token.sh
 
+# ansible-inventory --list

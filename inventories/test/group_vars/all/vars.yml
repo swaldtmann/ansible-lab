@@ -9,3 +9,4 @@ web_user: "{{ vault_web_user }}"
 #         - <Mehr Text ab hier>
 
 hcloud_token: "{{ vault_hcloud_token }}"
+ansible_pubkey_file: "keep/id_rsa.pub"
