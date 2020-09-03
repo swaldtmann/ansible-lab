@@ -1,0 +1,53 @@
+---
+# Handle student hosts, install basic packages, add users
+- name: Playbook handle_student_hosts.yml
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Gather hcloud server infos
+      hcloud_server_info:
+      register: output
+    
+    - name: Print the gathered infos
+      debug:
+        var: output.hcloud_server_info
+
+    - name: Create Student hosts
+      hcloud_server:
+        api_token: "{{ hcloud_token }}"
+        name: student-01
+        server_type: cx11
+        image: ubuntu-20.04
+        location: nbg1
+        labels:
+            ansible_student: ""
+        ssh_keys:
+            - root@ansible
+        state: present
+      register: student_01
+      tags:
+        - create
+
+    - name: Show created
+      debug:
+        var: student_01
+      tags:
+        - create
+
+    - name: Create Student hosts
+      hcloud_server:
+        api_token: "{{ hcloud_token }}"
+        name: student-01
+        server_type: cx11
+        image: ubuntu-20.04
+        location: nbg1
+        labels:
+            ansible_student: ""
+        ssh_keys:
+            - root@ansible
+        state: absent
+      register: student_01
+      tags:
+        - delete
+  

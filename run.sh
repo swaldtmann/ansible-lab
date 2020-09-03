@@ -2,6 +2,6 @@
 
 #set -x
 
-ansible-playbook -i inventories/test/hosts.ini playbooks/site.yml --vault-id keep/vault-password-file --list-hosts
+ansible-playbook playbooks/site.yml --list-hosts
 
-ansible-playbook -i inventories/test/hosts.ini playbooks/site.yml --vault-id keep/vault-password-file -v "$@"
+ansible-playbook playbooks/site.yml -v "$@"

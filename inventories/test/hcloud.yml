@@ -1,2 +1,11 @@
 ---
 plugin: hcloud
+
+#label_selector: "ansible_host"
+
+keyed_groups:
+    - key: labels
+      prefix: label_
+      separator: ""
+    - key: status
+      prefix: server_status
