@@ -7,3 +7,5 @@ web_user: "{{ vault_web_user }}"
 #         Ansible Playbook abgeschlossen. 
 #         Weitere Schritte:
 #         - <Mehr Text ab hier>
+
+hcloud_token: "{{ vault_hcloud_token }}"
