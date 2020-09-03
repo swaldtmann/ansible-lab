@@ -1,0 +1,5 @@
+---
+# handle_hosts.yml
+
+- import_playbook: hcloud_hosts.yml
+  tags: hcloud_hosts

@@ -14,3 +14,13 @@ export EDITOR=vi
 test -x ~/devel/ansible-lab/keep/hcloud_token.sh && . ~/devel/ansible-lab/keep/hcloud_token.sh
 
 # ansible-inventory --list
+
+
+# Hetzner Cloud Hosts
+./hcloud.sh # Erstellen der Hosts
+./hcloud.sh -e host_status=absent # Entfernen der Hosts
+
+# Hosts vorbereiten
+./run.sh -t "update,reboot" 
+oder
+./run.sh

@@ -1,0 +1,22 @@
+---
+# Handle hcloud hosts, install basic packages, add users
+- name: Playbook handle_hcloud_hosts.yml
+  hosts: localhost
+  become: yes
+
+
+# Control of playbook by extra vars:  
+#  -e host_status=present   # default
+#  -e host_status=absent
+  tasks:
+    # - name: Gather hcloud server infos
+    #   hcloud_server_info:
+    #   register: output
+    
+    # - name: Print the gathered infos
+    #   debug:
+    #     var: output.hcloud_server_info
+
+    - name: Handle hcloud hosts
+      include_tasks: handle_hcloud_server.yml
+      loop: "{{ range(1, hosts_count + 1)|list }}"

@@ -3,5 +3,4 @@
 #set -x
 
 ansible-playbook playbooks/site.yml --list-hosts
-
-ansible-playbook playbooks/site.yml -v "$@"
+ansible-playbook playbooks/site.yml "$@"

@@ -1,7 +1,4 @@
 ---
-web_group: "{{ vault_web_group }}"
-web_user: "{{ vault_web_user }}"
-
 # Multi Line Final Comments
 #final_comments: |-
 #         Ansible Playbook abgeschlossen. 
@@ -9,5 +6,17 @@ web_user: "{{ vault_web_user }}"
 #         - <Mehr Text ab hier>
 
 hcloud_token: "{{ vault_hcloud_token }}"
-ansible_pubkey_file: "keep/id_rsa.pub"
+ansible_host_pubkey_file: "{{ playbook_dir }}/../keep/id_rsa.pub"
 
+hosts_count: 2
+hosts_prefix: student
+host_status: present
+
+hosts_server_type: cx11
+hosts_image: ubuntu-20.04
+hosts_location: nbg1
+hosts_label: ansible_student
+hosts_ssh_key: root@ansible
+
+hosts_basic_packets:
+    - git

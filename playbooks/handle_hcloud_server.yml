@@ -1,0 +1,21 @@
+# playbooks/hcloud_server_known_hosts.yml
+---
+- name: Create or delete hcloud host status {{ host_status }}
+  hcloud_server:
+    api_token: "{{ hcloud_token }}"
+    name: "{{ hosts_prefix }}{{ '-%02x' | format(item) }}"
+    server_type: "{{ hosts_server_type }}"
+    image: "{{ hosts_image }}"
+    location: "{{ hosts_location }}"
+    labels: |
+      {
+        "{{ hosts_label }}": ""
+      }
+    ssh_keys:
+        - "{{ hosts_ssh_key }}"
+    state: "{{ host_status }}"
+  register: hcloud_hosts
+
+- name: Show created
+  debug:
+    var: hcloud_hosts
