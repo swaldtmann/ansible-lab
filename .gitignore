@@ -1,5 +1,5 @@
 # .gitignore fuer ansible
 *.retry
-#keep/**
+keep/**
 ansible.log
 .vscode
