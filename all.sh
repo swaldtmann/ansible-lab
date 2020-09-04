@@ -1,13 +1,18 @@
 #!/bin/bash
+#set -x
 
-set -x
+# ansible_control einrichten
+./ansible_control.sh
 
-./create_hcloud.sh # Erstellen der Hosts
+sleep 5
+
+# Erstellen der Hosts
+./create_hcloud.sh
 
 sleep 10
 
 # Hosts vorbereiten
-./run.sh -t "update,reboot" 
+./run.sh -t "update,reboot"
 
 sleep 5
 
