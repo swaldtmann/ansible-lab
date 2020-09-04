@@ -4,9 +4,6 @@
 #- import_playbook: info.yml
 #  tags: info
 
-#- import_playbook: users_info.yml
-#  tags: users
-
 - import_playbook: hcloud_hosts_update.yml
   tags: hcloud_update
 

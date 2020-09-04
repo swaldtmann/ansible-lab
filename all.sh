@@ -2,9 +2,9 @@
 
 set -x
 
-./hcloud.sh # Erstellen der Hosts
+./create_hcloud.sh # Erstellen der Hosts
 
-sleep 5
+sleep 10
 
 # Hosts vorbereiten
 ./run.sh -t "update,reboot" 

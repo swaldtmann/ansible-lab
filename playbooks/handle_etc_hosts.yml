@@ -1,0 +1,32 @@
+---
+# playbooks/handle_etc_hosts.yml
+- name: Playbook handle_etc_hosts.yml
+  hosts: localhost
+  become: yes
+
+
+# Control of playbook by extra vars:  
+#  -e host_status=present   # default
+#  -e host_status=absent
+  tasks:
+    # - name: Gather hcloud server infos
+    #   hcloud_server_info:
+    #   register: output
+    
+    # - name: Print the gathered infos
+    #   debug:
+    #     var: output.hcloud_server_info
+
+    # - name: list hosts
+    #   debug:
+    #     msg: "{{ hostvars[item].ipv4 }}"
+    #   loop: "{{ groups['all']|flatten(levels=1) }}"
+
+    - name: "Build hosts file"
+      lineinfile: 
+        dest: /etc/hosts
+        regexp: '.*{{ item }}$'
+        line: "{{ hostvars[item].ipv4 }} {{item}}"
+        state: "{{ host_status }}"
+      when: hostvars[item].ipv4 is defined
+      loop: "{{ groups['all']|flatten(levels=1) }}"
