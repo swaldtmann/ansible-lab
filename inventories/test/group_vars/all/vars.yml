@@ -7,6 +7,9 @@
 
 hcloud_token: "{{ vault_hcloud_token }}"
 ansible_host_pubkey_file: "{{ playbook_dir }}/../keep/id_rsa.pub"
+ansible_git_repo: https://github.com/swaldtmann/ansible-lab.git
+ansible_git_reponame: ansible-lab
+ansible_git_repopath: /srv
 
 hosts_count: 2
 hosts_prefix: student

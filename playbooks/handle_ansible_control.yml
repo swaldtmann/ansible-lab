@@ -1,0 +1,28 @@
+---
+# playbooks/handle_ansible_control.yml
+- name: Playbook handle_ansible_control.yml
+  hosts: label_ansible_control
+  become: yes
+
+  tasks:
+    - name: Update apt-get repo and cache
+      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+
+    - name: Installiere ansible
+      apt:
+        name:
+          - software-properties-common
+          - ansible
+        state: latest
+
+    - name: Installiere Basispakete
+      apt: 
+        name: "{{ item }}"
+        state: latest
+      loop: "{{ hosts_basic_packets }}"
+
+
+    - name: Clone git repo {{ ansible_git_repo }} to {{ ansible_git_repopath }}{{ ansible_git_reponame }}
+      git:
+        repo: "{{ ansible_git_repo }}"
+        dest: "{{ ansible_git_repopath }}/{{ ansible_git_reponame }}"
