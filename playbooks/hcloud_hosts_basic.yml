@@ -27,3 +27,32 @@
       generate_ssh_key: "{{ user_default.generate_ssh_key | default('no') }}"
     loop: "{{ range(1, hosts_count + 1)|list }}"
     #no_log: true
+
+  - name: add users to control
+    user:
+      name: "{{ hosts_prefix }}{{ '-%02x' | format(item) }}"
+      group: "{{ user_default.group }}"
+      password: "{{ user_default.password|password_hash('sha512') }}"
+      #home: "{{ user_default.home }}"
+      shell: "{{ user_default.shell | default('/bin/bash') }}"
+      groups: "{{ user_default.groups }}"
+      append: "{{ user_default.append }}"
+      state: "{{ user_default.state }}"
+      generate_ssh_key: "{{ user_default.generate_ssh_key | default('no') }}"
+    loop: "{{ range(1, hosts_count + 1)|list }}"
+    #no_log: true
+    delegate_to: localhost
+
+  - name: add edu to control
+    user:
+      name: edu
+      group: "{{ user_default.group }}"
+      password: "{{ user_default.password|password_hash('sha512') }}"
+      #home: "{{ user_default.home }}"
+      shell: "{{ user_default.shell | default('/bin/bash') }}"
+      groups: "{{ user_default.groups }}"
+      append: "{{ user_default.append }}"
+      state: "{{ user_default.state }}"
+      generate_ssh_key: "{{ user_default.generate_ssh_key | default('no') }}"
+    #no_log: true
+    delegate_to: localhost
