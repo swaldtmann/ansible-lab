@@ -1,5 +1,5 @@
 ---
-- name: Playbook hcloud_basic.yml
+- name: Playbook hcloud_basic.yml label_ansible_student
   hosts: label_ansible_student
   become: yes
 
@@ -28,6 +28,12 @@
     loop: "{{ range(1, hosts_count + 1)|list }}"
     #no_log: true
 
+
+- name: Playbook hcloud_basic.yml label_ansible_control
+  hosts: label_ansible_control
+  become: yes
+  
+  tasks:
   - name: add users to control
     user:
       name: "{{ hosts_prefix }}{{ '-%02x' | format(item) }}"
@@ -41,7 +47,6 @@
       generate_ssh_key: "{{ user_default.generate_ssh_key | default('no') }}"
     loop: "{{ range(1, hosts_count + 1)|list }}"
     #no_log: true
-    delegate_to: localhost
 
   - name: add edu to control
     user:
@@ -55,4 +60,3 @@
       state: "{{ user_default.state }}"
       generate_ssh_key: "{{ user_default.generate_ssh_key | default('no') }}"
     #no_log: true
-    delegate_to: localhost
