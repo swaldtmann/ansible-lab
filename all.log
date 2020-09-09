@@ -1,0 +1,449 @@
+Using /root/devel/ansible-lab/ansible.cfg as config file
+
+PLAY [Playbook handle_ansible_control.yml] ********************************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************************************
+ok: [ansible]
+
+TASK [Update apt-get repo and cache] **************************************************************************************************
+changed: [ansible] => {"cache_update_time": 1599556708, "cache_updated": true, "changed": true}
+
+TASK [Installiere ansible] ************************************************************************************************************
+ok: [ansible] => {"cache_update_time": 1599556708, "cache_updated": false, "changed": false}
+
+TASK [Installiere Basispakete] ********************************************************************************************************
+ok: [ansible] => (item=git) => {"ansible_loop_var": "item", "cache_update_time": 1599556708, "cache_updated": false, "changed": false, "item": "git"}
+ok: [ansible] => (item=tcptrack) => {"ansible_loop_var": "item", "cache_update_time": 1599556708, "cache_updated": false, "changed": false, "item": "tcptrack"}
+ok: [ansible] => (item=unzip) => {"ansible_loop_var": "item", "cache_update_time": 1599556708, "cache_updated": false, "changed": false, "item": "unzip"}
+ok: [ansible] => (item=dstat) => {"ansible_loop_var": "item", "cache_update_time": 1599556708, "cache_updated": false, "changed": false, "item": "dstat"}
+
+TASK [Clone git repo https://github.com/swaldtmann/ansible-lab.git to /srvansible-lab] ************************************************
+ok: [ansible] => {"after": "5f631bc674fb95a8e777f2c08c46916b7cc82927", "before": "5f631bc674fb95a8e777f2c08c46916b7cc82927", "changed": false, "remote_url_changed": false}
+
+PLAY RECAP ****************************************************************************************************************************
+ansible                    : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+Using /root/devel/ansible-lab/ansible.cfg as config file
+
+PLAY [Playbook handle_hcloud_hosts.yml] ***********************************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Handle hcloud hosts] ************************************************************************************************************
+included: /root/devel/ansible-lab/playbooks/handle_hcloud_server.yml for localhost
+included: /root/devel/ansible-lab/playbooks/handle_hcloud_server.yml for localhost
+included: /root/devel/ansible-lab/playbooks/handle_hcloud_server.yml for localhost
+included: /root/devel/ansible-lab/playbooks/handle_hcloud_server.yml for localhost
+included: /root/devel/ansible-lab/playbooks/handle_hcloud_server.yml for localhost
+included: /root/devel/ansible-lab/playbooks/handle_hcloud_server.yml for localhost
+
+TASK [Create or delete hcloud host status present] ************************************************************************************
+changed: [localhost] => {"changed": true, "hcloud_server": {"backup_window": "None", "datacenter": "nbg1-dc3", "id": "7536886", "image": "ubuntu-20.04", "ipv4_address": "116.203.185.57", "ipv6": "2a01:4f8:c2c:340d::/64", "labels": {"ansible_student": ""}, "location": "nbg1", "name": "student-01", "rescue_enabled": false, "server_type": "cx11", "status": "running"}, "root_password": null}
+
+TASK [Show created] *******************************************************************************************************************
+ok: [localhost] => {
+    "hcloud_hosts": {
+        "changed": true,
+        "failed": false,
+        "hcloud_server": {
+            "backup_window": "None",
+            "datacenter": "nbg1-dc3",
+            "id": "7536886",
+            "image": "ubuntu-20.04",
+            "ipv4_address": "116.203.185.57",
+            "ipv6": "2a01:4f8:c2c:340d::/64",
+            "labels": {
+                "ansible_student": ""
+            },
+            "location": "nbg1",
+            "name": "student-01",
+            "rescue_enabled": false,
+            "server_type": "cx11",
+            "status": "running"
+        },
+        "root_password": null
+    }
+}
+
+TASK [Create or delete hcloud host status present] ************************************************************************************
+changed: [localhost] => {"changed": true, "hcloud_server": {"backup_window": "None", "datacenter": "nbg1-dc3", "id": "7536888", "image": "ubuntu-20.04", "ipv4_address": "168.119.117.42", "ipv6": "2a01:4f8:c0c:e5c4::/64", "labels": {"ansible_student": ""}, "location": "nbg1", "name": "student-02", "rescue_enabled": false, "server_type": "cx11", "status": "running"}, "root_password": null}
+
+TASK [Show created] *******************************************************************************************************************
+ok: [localhost] => {
+    "hcloud_hosts": {
+        "changed": true,
+        "failed": false,
+        "hcloud_server": {
+            "backup_window": "None",
+            "datacenter": "nbg1-dc3",
+            "id": "7536888",
+            "image": "ubuntu-20.04",
+            "ipv4_address": "168.119.117.42",
+            "ipv6": "2a01:4f8:c0c:e5c4::/64",
+            "labels": {
+                "ansible_student": ""
+            },
+            "location": "nbg1",
+            "name": "student-02",
+            "rescue_enabled": false,
+            "server_type": "cx11",
+            "status": "running"
+        },
+        "root_password": null
+    }
+}
+
+TASK [Create or delete hcloud host status present] ************************************************************************************
+changed: [localhost] => {"changed": true, "hcloud_server": {"backup_window": "None", "datacenter": "nbg1-dc3", "id": "7536902", "image": "ubuntu-20.04", "ipv4_address": "168.119.117.43", "ipv6": "2a01:4f8:c2c:6d4d::/64", "labels": {"ansible_student": ""}, "location": "nbg1", "name": "student-03", "rescue_enabled": false, "server_type": "cx11", "status": "running"}, "root_password": null}
+
+TASK [Show created] *******************************************************************************************************************
+ok: [localhost] => {
+    "hcloud_hosts": {
+        "changed": true,
+        "failed": false,
+        "hcloud_server": {
+            "backup_window": "None",
+            "datacenter": "nbg1-dc3",
+            "id": "7536902",
+            "image": "ubuntu-20.04",
+            "ipv4_address": "168.119.117.43",
+            "ipv6": "2a01:4f8:c2c:6d4d::/64",
+            "labels": {
+                "ansible_student": ""
+            },
+            "location": "nbg1",
+            "name": "student-03",
+            "rescue_enabled": false,
+            "server_type": "cx11",
+            "status": "running"
+        },
+        "root_password": null
+    }
+}
+
+TASK [Create or delete hcloud host status present] ************************************************************************************
+changed: [localhost] => {"changed": true, "hcloud_server": {"backup_window": "None", "datacenter": "nbg1-dc3", "id": "7536903", "image": "ubuntu-20.04", "ipv4_address": "116.203.217.131", "ipv6": "2a01:4f8:c2c:8362::/64", "labels": {"ansible_student": ""}, "location": "nbg1", "name": "student-04", "rescue_enabled": false, "server_type": "cx11", "status": "running"}, "root_password": null}
+
+TASK [Show created] *******************************************************************************************************************
+ok: [localhost] => {
+    "hcloud_hosts": {
+        "changed": true,
+        "failed": false,
+        "hcloud_server": {
+            "backup_window": "None",
+            "datacenter": "nbg1-dc3",
+            "id": "7536903",
+            "image": "ubuntu-20.04",
+            "ipv4_address": "116.203.217.131",
+            "ipv6": "2a01:4f8:c2c:8362::/64",
+            "labels": {
+                "ansible_student": ""
+            },
+            "location": "nbg1",
+            "name": "student-04",
+            "rescue_enabled": false,
+            "server_type": "cx11",
+            "status": "running"
+        },
+        "root_password": null
+    }
+}
+
+TASK [Create or delete hcloud host status present] ************************************************************************************
+changed: [localhost] => {"changed": true, "hcloud_server": {"backup_window": "None", "datacenter": "nbg1-dc3", "id": "7536905", "image": "ubuntu-20.04", "ipv4_address": "159.69.6.18", "ipv6": "2a01:4f8:c2c:44c8::/64", "labels": {"ansible_student": ""}, "location": "nbg1", "name": "student-05", "rescue_enabled": false, "server_type": "cx11", "status": "running"}, "root_password": null}
+
+TASK [Show created] *******************************************************************************************************************
+ok: [localhost] => {
+    "hcloud_hosts": {
+        "changed": true,
+        "failed": false,
+        "hcloud_server": {
+            "backup_window": "None",
+            "datacenter": "nbg1-dc3",
+            "id": "7536905",
+            "image": "ubuntu-20.04",
+            "ipv4_address": "159.69.6.18",
+            "ipv6": "2a01:4f8:c2c:44c8::/64",
+            "labels": {
+                "ansible_student": ""
+            },
+            "location": "nbg1",
+            "name": "student-05",
+            "rescue_enabled": false,
+            "server_type": "cx11",
+            "status": "running"
+        },
+        "root_password": null
+    }
+}
+
+TASK [Create or delete hcloud host status present] ************************************************************************************
+changed: [localhost] => {"changed": true, "hcloud_server": {"backup_window": "None", "datacenter": "nbg1-dc3", "id": "7536907", "image": "ubuntu-20.04", "ipv4_address": "159.69.1.184", "ipv6": "2a01:4f8:c2c:2c33::/64", "labels": {"ansible_student": ""}, "location": "nbg1", "name": "student-06", "rescue_enabled": false, "server_type": "cx11", "status": "running"}, "root_password": null}
+
+TASK [Show created] *******************************************************************************************************************
+ok: [localhost] => {
+    "hcloud_hosts": {
+        "changed": true,
+        "failed": false,
+        "hcloud_server": {
+            "backup_window": "None",
+            "datacenter": "nbg1-dc3",
+            "id": "7536907",
+            "image": "ubuntu-20.04",
+            "ipv4_address": "159.69.1.184",
+            "ipv6": "2a01:4f8:c2c:2c33::/64",
+            "labels": {
+                "ansible_student": ""
+            },
+            "location": "nbg1",
+            "name": "student-06",
+            "rescue_enabled": false,
+            "server_type": "cx11",
+            "status": "running"
+        },
+        "root_password": null
+    }
+}
+
+PLAY RECAP ****************************************************************************************************************************
+localhost                  : ok=19   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+Using /root/devel/ansible-lab/ansible.cfg as config file
+
+PLAY [Playbook handle_etc_hosts.yml] **************************************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Build hosts file] ***************************************************************************************************************
+changed: [localhost] => (item=ansible) => {"ansible_loop_var": "item", "backup": "", "changed": true, "item": "ansible", "msg": "line added"}
+changed: [localhost] => (item=student-01) => {"ansible_loop_var": "item", "backup": "", "changed": true, "item": "student-01", "msg": "line added"}
+changed: [localhost] => (item=student-02) => {"ansible_loop_var": "item", "backup": "", "changed": true, "item": "student-02", "msg": "line added"}
+changed: [localhost] => (item=student-03) => {"ansible_loop_var": "item", "backup": "", "changed": true, "item": "student-03", "msg": "line added"}
+changed: [localhost] => (item=student-04) => {"ansible_loop_var": "item", "backup": "", "changed": true, "item": "student-04", "msg": "line added"}
+changed: [localhost] => (item=student-05) => {"ansible_loop_var": "item", "backup": "", "changed": true, "item": "student-05", "msg": "line added"}
+changed: [localhost] => (item=student-06) => {"ansible_loop_var": "item", "backup": "", "changed": true, "item": "student-06", "msg": "line added"}
+
+PLAY RECAP ****************************************************************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+playbook: playbooks/site.yml
+
+  play #1 (label_ansible_student): Playbook hcloud_basic.yml	TAGS: [hcloud_update]
+    pattern: ['label_ansible_student']
+    hosts (6):
+      student-06
+      student-01
+      student-03
+      student-04
+      student-02
+      student-05
+
+  play #2 (label_ansible_student): Playbook hcloud_basic.yml label_ansible_student	TAGS: [hcloud_basic]
+    pattern: ['label_ansible_student']
+    hosts (6):
+      student-06
+      student-01
+      student-03
+      student-04
+      student-02
+      student-05
+
+  play #3 (label_ansible_control): Playbook hcloud_basic.yml label_ansible_control	TAGS: [hcloud_basic]
+    pattern: ['label_ansible_control']
+    hosts (1):
+      ansible
+
+PLAY [Playbook hcloud_basic.yml] ******************************************************************************************************
+
+TASK [Update apt-get repo and cache] **************************************************************************************************
+changed: [student-02]
+changed: [student-03]
+changed: [student-05]
+changed: [student-04]
+changed: [student-01]
+changed: [student-06]
+
+TASK [Upgrade all apt packages] *******************************************************************************************************
+changed: [student-03]
+changed: [student-05]
+changed: [student-04]
+changed: [student-02]
+changed: [student-01]
+changed: [student-06]
+
+TASK [Check if a reboot is needed for Debian and Ubuntu boxes] ************************************************************************
+ok: [student-05]
+ok: [student-04]
+ok: [student-01]
+ok: [student-03]
+ok: [student-02]
+ok: [student-06]
+
+TASK [Reboot the Debian or Ubuntu server] *********************************************************************************************
+changed: [student-05]
+changed: [student-03]
+changed: [student-04]
+changed: [student-02]
+changed: [student-01]
+changed: [student-06]
+
+PLAY [Playbook hcloud_basic.yml label_ansible_student] ********************************************************************************
+
+PLAY [Playbook hcloud_basic.yml label_ansible_control] ********************************************************************************
+
+PLAY RECAP ****************************************************************************************************************************
+student-01                 : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+student-02                 : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+student-03                 : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+student-04                 : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+student-05                 : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+student-06                 : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+playbook: playbooks/site.yml
+
+  play #1 (label_ansible_student): Playbook hcloud_basic.yml	TAGS: [hcloud_update]
+    pattern: ['label_ansible_student']
+    hosts (6):
+      student-01
+      student-02
+      student-04
+      student-05
+      student-06
+      student-03
+
+  play #2 (label_ansible_student): Playbook hcloud_basic.yml label_ansible_student	TAGS: [hcloud_basic]
+    pattern: ['label_ansible_student']
+    hosts (6):
+      student-01
+      student-02
+      student-04
+      student-05
+      student-06
+      student-03
+
+  play #3 (label_ansible_control): Playbook hcloud_basic.yml label_ansible_control	TAGS: [hcloud_basic]
+    pattern: ['label_ansible_control']
+    hosts (1):
+      ansible
+
+PLAY [Playbook hcloud_basic.yml] ******************************************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************************************
+ok: [student-03]
+ok: [student-02]
+ok: [student-04]
+ok: [student-05]
+ok: [student-01]
+ok: [student-06]
+
+PLAY [Playbook hcloud_basic.yml label_ansible_student] ********************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************************************
+ok: [student-01]
+ok: [student-03]
+ok: [student-02]
+ok: [student-04]
+ok: [student-05]
+ok: [student-06]
+
+TASK [Update apt-get repo and cache] **************************************************************************************************
+ok: [student-02]
+ok: [student-04]
+ok: [student-01]
+ok: [student-03]
+ok: [student-05]
+ok: [student-06]
+
+TASK [Installiere Basispakete] ********************************************************************************************************
+changed: [student-04] => (item=git)
+changed: [student-03] => (item=git)
+changed: [student-05] => (item=git)
+changed: [student-01] => (item=git)
+changed: [student-02] => (item=git)
+changed: [student-04] => (item=tcptrack)
+changed: [student-03] => (item=tcptrack)
+changed: [student-05] => (item=tcptrack)
+changed: [student-02] => (item=tcptrack)
+changed: [student-01] => (item=tcptrack)
+changed: [student-04] => (item=unzip)
+changed: [student-03] => (item=unzip)
+changed: [student-05] => (item=unzip)
+changed: [student-02] => (item=unzip)
+changed: [student-01] => (item=unzip)
+changed: [student-04] => (item=dstat)
+changed: [student-03] => (item=dstat)
+changed: [student-05] => (item=dstat)
+changed: [student-02] => (item=dstat)
+changed: [student-01] => (item=dstat)
+changed: [student-06] => (item=git)
+changed: [student-06] => (item=tcptrack)
+changed: [student-06] => (item=unzip)
+changed: [student-06] => (item=dstat)
+
+TASK [add users] **********************************************************************************************************************
+changed: [student-05] => (item=1)
+changed: [student-02] => (item=1)
+changed: [student-03] => (item=1)
+changed: [student-01] => (item=1)
+changed: [student-04] => (item=1)
+changed: [student-05] => (item=2)
+changed: [student-03] => (item=2)
+changed: [student-01] => (item=2)
+changed: [student-02] => (item=2)
+changed: [student-04] => (item=2)
+changed: [student-03] => (item=3)
+changed: [student-01] => (item=3)
+changed: [student-05] => (item=3)
+changed: [student-03] => (item=4)
+changed: [student-02] => (item=3)
+changed: [student-04] => (item=3)
+changed: [student-05] => (item=4)
+changed: [student-03] => (item=5)
+changed: [student-04] => (item=4)
+changed: [student-01] => (item=4)
+changed: [student-05] => (item=5)
+changed: [student-02] => (item=4)
+changed: [student-03] => (item=6)
+changed: [student-01] => (item=5)
+changed: [student-05] => (item=6)
+changed: [student-02] => (item=5)
+changed: [student-04] => (item=5)
+changed: [student-01] => (item=6)
+changed: [student-02] => (item=6)
+changed: [student-04] => (item=6)
+changed: [student-06] => (item=1)
+changed: [student-06] => (item=2)
+changed: [student-06] => (item=3)
+changed: [student-06] => (item=4)
+changed: [student-06] => (item=5)
+changed: [student-06] => (item=6)
+
+PLAY [Playbook hcloud_basic.yml label_ansible_control] ********************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************************************
+ok: [ansible]
+
+TASK [add users to control] ***********************************************************************************************************
+changed: [ansible] => (item=1)
+changed: [ansible] => (item=2)
+changed: [ansible] => (item=3)
+changed: [ansible] => (item=4)
+changed: [ansible] => (item=5)
+changed: [ansible] => (item=6)
+
+TASK [add edu to control] *************************************************************************************************************
+changed: [ansible]
+
+PLAY RECAP ****************************************************************************************************************************
+ansible                    : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+student-01                 : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+student-02                 : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+student-03                 : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+student-04                 : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+student-05                 : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+student-06                 : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

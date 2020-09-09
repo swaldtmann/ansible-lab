@@ -11,7 +11,7 @@ ansible_git_repo: https://github.com/swaldtmann/ansible-lab.git
 ansible_git_reponame: ansible-lab
 ansible_git_repopath: /srv
 
-hosts_count: 2
+hosts_count: 6
 hosts_prefix: student
 host_status: present
 
